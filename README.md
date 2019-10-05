@@ -6,7 +6,7 @@
 
 1. Создайте пустую папку
 2. Выполните команду ```git clone https://github.com/ryabv/learn-react.git client```
-3. git clone ```https://github.com/ryabv/git-API.git server```
+3. Выполните команду ```git clone https://github.com/ryabv/git-API.git server```
 4. В пустой папке должно появится две папки с названием ```client``` и ```server```
 5. Перейдите в командной строке в папку ```client``` через команду ```cd client```
 6. Выполните ```npm i```
