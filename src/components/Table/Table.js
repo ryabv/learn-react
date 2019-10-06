@@ -31,7 +31,7 @@ export default class Table extends React.Component {
 
     getTableContent() {
         if (!this.props.files) {
-            console.log('no files');
+            // console.log('no files');
             return;
         }
         
@@ -54,7 +54,7 @@ export default class Table extends React.Component {
             }
 
             return (
-                <tr key={i} className="Table-Row">
+                <tr key={i} className="Table-Row" data-test="TableRow">
                     <td className="Table-Td"><a onClick={this.getMore} className={`Link Link_color_black ${fileTypeClass} Link_mob_after-link`} href={`${filePagePath}/${file.name}`}>{file.name}</a></td>
                     <td className="Table-Td"><a className="Link" href="/">{this.props.commitHash}</a></td>
                     <td className="Table-Td">{file.commitMessage}</td>
@@ -68,7 +68,7 @@ export default class Table extends React.Component {
     render() {
         return (
             <section className="Table-Block">
-                <table className="Table" id="filesList">
+                <table className="Table" id="filesList" data-test="TableComponent">
                     <thead>
                         <tr className="Table-Row Table-Row_header">
                             <th className="Table-Td Table-Td_header">Name</th>
