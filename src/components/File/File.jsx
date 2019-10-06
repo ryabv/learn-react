@@ -3,7 +3,7 @@ import React from 'react';
 class File extends React.Component {
     setFileContent() {
         if (!this.props.fileContent) {
-            console.log('no data');
+            // console.log('no data');
             return;
         }
 

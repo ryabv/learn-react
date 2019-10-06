@@ -37,8 +37,10 @@
     "devDependencies": {
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.14.0",
+        "hermione": "^2.12.6",
         "jest": "^24.9.0",
         "jest-enzyme": "^7.1.1",
-        "react-redux": "^7.1.1"
+        "react-redux": "^7.1.1",
+        "selenium-standalone": "^6.16.0"
     }
 }
