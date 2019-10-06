@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Learn React
 
-## Available Scripts
+У меня возникли сложности с объединением сервера и клиента в одном репозитории, поэтому проект надо запускать через установку двух репозиториев.
 
-In the project directory, you can run:
+## Как запустить проект
 
-### `npm start`
+1. Создайте пустую папку
+2. Выполните команду ```git clone https://github.com/ryabv/learn-react.git client```
+3. Выполните команду ```git clone https://github.com/ryabv/git-API.git server```
+4. В пустой папке должно появится две папки с названием ```client``` и ```server```
+5. Перейдите в командной строке в папку ```server``` через команду ```cd ../server```
+6. Выполните ```npm i```
+7. Выполните ```node app```, сервер спросит путь к папке с репозиториями, введите ```./repos```
+8. Откройте новую консоль в корневой папке, перейдите по пути ```server/test/test-repository``` и скачайте какой-нибудь репозиторий, например так: ```git clone https://github.com/GoogleChrome/puppeteer.git```
+9. Перейдите в командной строке в папку ```client``` через команду ```cd ../../../client```
+10. Выполните ```npm i```
+11. Выполните ```npm start```
+12. В итоге будет запущено 2 сервера: один для API, другой для клиента на 3001 и 3000 портах соответсвенно. Нам нужен на порту 3000 http://localhost:3000
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Что сделано
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+### Unit-тесты
+Unit-тесты написаны только на блоки клиентской части, поэтому проверку нужно осуществлять из папки ```client```.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Всего в проекте на данный момент два системных блока и для каждого два сценария:
 
-### `npm run build`
+1. Страница со списком файлов и папок
+  1. С данными
+  2. Без данных
+2. Страница файла
+  1. С данными
+  2. Без данных
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Unit-тесты для каждого блока расположены в папках этих компонентов (```Table``` и ```File```).
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Тесты запускаются через команду ```npm test```.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Интеграционные тесты
+Интеграционные тесты также написаны только на блоки клиентской части, поэтому проверку нужно осуществлять из папки ```client```.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Всего написано два интеграционных теста:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Страница файла должна появится при переходе по ссылке http://localhost:3000/filepage/file.txt
+2. Страница списка файлов и папок должна появится при переходе по ссылке http://localhost:3000/folderpage/testFolder
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Важно, что тесты должны запускаться при работающих серверах API и клиента (localhost:3001, localhost: 3000).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+P.S. У меня по какой-то причине не получалось запустить Гермиону локально, поэтому пришлось установить глобально и запускать через команду ```hermione```.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+P.P.S. К сожалению, не успел написать другие тесты из-за нехватки времени
